@@ -35,12 +35,25 @@ class BooksController extends Controller
         $books = BooksModel::find($id);
 
         // show the edit form and pass the books
-        return View::make('Backend.books.edit')
-            ->with('books', $books);
+        // return View::make('Backend.books.form')
+            // ->with('books', $books);
+            // dd([
+            //     'form' => url('admin/books/'.$id.'/edit'),
+            //     'title' => $books->title,
+            //     'description' => $books->description,
+            //     'price' => $books->price
+            // ]);
+
+        return view('Backend.books.form', [
+            'form' => url('admin/books/'.$id.'/edit'),
+            'title' => $books->title,
+            'description' => $books->description,
+            'price' => $books->price
+        ]);
     }
 
     public function postEdit (Request $request){
-        DB::table('books')->insert([
+        DB::table('books')->update([
             'title' => $request->title,
             'description' => $request->description,
             'price' => $request->price
@@ -68,6 +81,11 @@ class BooksController extends Controller
     //detail data
     public function getAdd ()
     {
-        return view ('Backend.books.add');
+        return view ('Backend.books.form',[
+            'form' => url('admin/books/save'),
+            'title' => old('title'),
+            'description' => old('description'),
+            'price' => old('price'),
+        ]);
     }
 }

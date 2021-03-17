@@ -161,14 +161,14 @@
                           </li>
 
                           <li class="nav-item">
-                            <a href="./books_categories" class="nav-link">
+                            <a href="./bookscategories" class="nav-link">
                               <i class="nav-icon fas fa-copy"></i>
                               <p>Books Categories</p>
                             </a>
                           </li>                       
                                     
                           <li href="#" class="nav-item">
-                              <a href="./transactions" class="nav-link">
+                              <a href="{{url ('admin/transactions')}}" class="nav-link">
                                 <i class="nav-icon fas fa-edit"></i>
                                 <p>Transaction</p>                                 
                               </a>

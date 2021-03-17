@@ -9,15 +9,17 @@
   </div>
   <!-- /.card-header -->
   <div class="card-body">
+    <form action="{{url('admin/books/detail')}}" method="POST">
+      @csrf
     <strong><i class="fas fa-book mr-1"></i> Title</strong>
 
-    <p class="text-muted"> Programming </p>
+    <p class="text-muted"> </p>
 
     <hr>
 
-    <strong><i class="fas fa-map-marker-alt mr-1"></i> Description</strong>
+    <strong><i class="fas fa-th mr-1"></i> Description</strong>
 
-    <p class="text-muted">Malibu, California</p>
+    <p class="text-muted"></p>
 
     <hr>
 
@@ -30,6 +32,12 @@
       <span class="tag tag-warning">PHP</span>
       <span class="tag tag-primary">Node.js</span>
     </p>
+    <div class="group-form-mb-5">
+    <a href="{{ url('admin/books/') }}" class="btn btn-secondary">Cancel</a>
+        <!-- /.card -->
+        <div class="row">
+          <div class="col-12 float-right">
+            <input type="submit" value="Create new Porject" class="btn btn-success float-right-mb-3">
 
   </div>
   <!-- /.card-body -->

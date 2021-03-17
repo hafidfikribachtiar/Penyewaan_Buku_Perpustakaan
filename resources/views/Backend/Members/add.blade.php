@@ -23,8 +23,8 @@
             <div class="form-group">
               <label for="inputName">Name</label>
               <input type="text" id="inputName" class="form-control"
-                                 name="title" placeholder="Title" 
-                                 value="{{ old('title') }}">
+                                 name="name" placeholder="Name" 
+                                 value="{{ old('name') }}">
             </div>
             <div class="form-group">
               <label for="inputClientCompany">Phone</label>
@@ -47,7 +47,7 @@
           </div>
           <!-- /.card-body -->
         </div>
-        <a href="#" class="btn btn-secondary">Cancel</a>
+        <a href="{{url('/admin/members/')}}" class="btn btn-secondary">Cancel</a>
         <!-- /.card -->
         <div class="row">
           <div class="col-12 float-right">

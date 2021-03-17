@@ -16,32 +16,31 @@
             </div>
           </div>
 
-        <form action="{{url('admin/books/edit')}}" method="POST">
+        <form action="{{ $form }}" method="POST">
           @csrf
-        <input style="display: none;" type="text" name="id" value="{{$books->id}}">
+
           <div class="card-body">
             <div class="form-group">
               <label for="inputName">Title</label>
-              <input required  type="text" id="inputName" class="form-control"
+              <input type="text" id="inputName" class="form-control"
                                  name="title" placeholder="Title" 
-                                 value="{{ $books->title }}">
+                                 value="{{ $title }}">
             </div>
             <div class="form-group">
               <label for="inputDescription">Description</label>
-              <textarea required id="inputDescription" class="form-control" rows="4"
-                        name="description" placeholder="Description" 
-                        >{{ $books->description  }}</textarea>
+              <textarea id="inputDescription" class="form-control" rows="4"
+                        name="description" placeholder="Description">{{ $description }}</textarea>
             </div>
             <div class="form-group">
               <label for="inputClientCompany">Price</label>
-              <input required type="number" id="inputClientCompany" class="form-control"
+              <input type="number" id="inputClientCompany" class="form-control"
                      name="price" placeholder="Price" 
-                     value="{{ $books->price }}">
+                     value="{{ $price }}">
             </div>
           </div>
           <!-- /.card-body -->
         </div>
-        <a href="#" class="btn btn-secondary">Cancel</a>
+        <a href="{{url('/admin/books/')}}" class="btn btn-secondary">Cancel</a>
         <!-- /.card -->
         <div class="row">
           <div class="col-12 float-right">
@@ -53,6 +52,7 @@
         <!-- /.card -->
       </div>
     </div>
+    
       </div>
     </div>
   </section>

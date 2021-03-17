@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Members;
+use View;
 
 class MembersController extends Controller
 {
@@ -31,14 +32,33 @@ class MembersController extends Controller
     //simpan form
     public function getEdit($id)
     {
-        return view ('members.edit');
+        $members = MembersModel::find($id);
+
+        return view ('Backend.members.form', [
+        'form' => url ('admin/members/'.$id.'/edit'),
+        'name' => $members->name,
+        'phone' => $members->phone,
+        'address' => $members->address,
+        'email' => $members->email
+        ]);
     }
+    // public function postEdit (Request $request){
+    //     DB::table('members')->update([
+    //         'title' => $request->title,
+    //         'description' => $request->description,
+    //         'price' => $request->price
+    //     ]);
+    //     return redirect('/admin/members');
+    // }
 
     //form edit
     public function getDelete ($id)
     {
-        DB::table('members')->where('id', $id)->delete();
-        return redirect('/members');
+        // DB::table('members')->where('id', $id)->delete();
+        // return redirect('/members');
+        MembersModel::deleteById($id);
+
+        return redirect()->back()->with(["message"=>"Members has been deleted!"]);
     }
 
     //hapus data
@@ -50,6 +70,12 @@ class MembersController extends Controller
     //detail data
     public function getAdd ()
     {
-        return view ('Backend.members.add');
+        return view ('Backend.members.form', [
+        'form' => url ('admin/members/save'),
+        'name' => old ('name'),
+        'phone' => old ('phone'),
+        'address' => old ('address'),
+        'email' => old ('email'),
+        ]);
     }
 }

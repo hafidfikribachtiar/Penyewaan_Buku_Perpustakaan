@@ -24,7 +24,7 @@ Route::get('admin/members', [App\Http\Controllers\MembersController::class, 'get
 Route::get('admin/members/add', [App\Http\Controllers\MembersController::class, 'getAdd']);
 Route::post('admin/members/save', [App\Http\Controllers\MembersController::class, 'postSave']);
 Route::get('admin/members/edit{id}', [App\Http\Controller\MembersController::class, 'getEdit']);
-Route::get('admin/members/delete', [App\Http\Controller\MembersController::class, 'getDelete']);
+Route::get('admin/members/delete/{id}', [App\Http\Controller\MembersController::class, 'getDelete']);
 Route::post('admin/members/{id}/edit', [App\Http\Controllers\MembersController::class, 'postEdit']);
 Route::get('admin/members/detail/{id}', [App\Http\Controllers\MembersController::class, 'getDetail']);
 

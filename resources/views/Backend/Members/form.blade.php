@@ -7,7 +7,7 @@
       <div class="col-md-6">
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Create books</h3>
+            <h3 class="card-title">Create Members</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -16,32 +16,37 @@
             </div>
           </div>
 
-        <form action="{{url('admin/books/save')}}" method="POST">
+        <form action="{{ $form }}" method="POST">
           @csrf
 
           <div class="card-body">
             <div class="form-group">
-              <label for="inputName">Title</label>
+              <label for="inputName">Name</label>
               <input type="text" id="inputName" class="form-control"
-                                 name="title" placeholder="Title" 
-                                 value="{{ old('title') }}">
+                                 name="name" placeholder="Name" 
+                                 value="{{ old('name') }}">
             </div>
             <div class="form-group">
-              <label for="inputDescription">Description</label>
-              <textarea id="inputDescription" class="form-control" rows="4"
-                        name="description" placeholder="Description" 
-                        value="{{ old('description') }}"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="inputClientCompany">Price</label>
+              <label for="inputClientCompany">Phone</label>
               <input type="number" id="inputClientCompany" class="form-control"
-                     name="price" placeholder="Price" 
-                     value="{{ old('price') }}">
+                        name="phone" placeholder="Phone" 
+                        value="{{ old('phone') }}">
             </div>
+            <div class="form-group">
+              <label for="inputAddress">Address</label>
+              <textarea id="inputAddress" class="form-control" rows="4"
+                     name="address" placeholder="Address">{{ old('address') }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="inputClientCompany">Email</label>
+                <input type="inputemail" id="inputEmail" class="form-control"
+                       name="email" placeholder="Email" 
+                       value="{{ old('email') }}">
+              </div>
           </div>
           <!-- /.card-body -->
         </div>
-        <a href="#" class="btn btn-secondary">Cancel</a>
+        <a href="{{url('/admin/members/')}}" class="btn btn-secondary">Cancel</a>
         <!-- /.card -->
         <div class="row">
           <div class="col-12 float-right">
