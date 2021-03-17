@@ -56,19 +56,20 @@
               
 
               <?php $no = 1; ?>
-              @foreach ($books as $kat)
+              @foreach ($books as $kat => $value)
               
               
               <tr>
               <td>{{ $no++ }}</td>
-              <td>{{ $kat->title }}</td>
-              <td>{{ $kat->description }}</td>
-              <td>{{ $kat->price }}</td>
+              <td>{{ $value->title }}</td>
+              <td>{{ $value->description }}</td>
+              <td>{{ $value->price }}</td>
               
               <td>
-                <a href="{{ url('admin/books/edit/'.$kat->id) }}" class="btn btn-success btn-sm"><i class="fas fa-cog"></i></a>
-                <a href="{{ url('admin/books/detail/'.$kat->id) }}" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
-                <a href="{{ url('admin/books/delete/'.$kat->id) }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                <a href="{{ url('admin/books/edit/'.$value->id) }}" class="btn btn-success btn-sm"><i class="fas fa-cog"></i></a>
+                <a href="{{ url('admin/books/detail/'.$value->id) }}" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
+                <a href="{{ url('admin/books/delete/'.$value->id) }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+              
               </td>
               {{-- <td>
               

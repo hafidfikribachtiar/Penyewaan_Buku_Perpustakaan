@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 // use App\Category;
-use App\Models\Books;
+use App\Models\BooksModel;
+use View;
 
 class BooksController extends Controller
 {
@@ -31,21 +32,37 @@ class BooksController extends Controller
     //simpan form
     public function getEdit($id)
     {
-        $books = books::table($id);
-        return view::make('Backend.books.edit')->with('books', $books);
+        $books = BooksModel::find($id);
+
+        // show the edit form and pass the books
+        return View::make('Backend.books.edit')
+            ->with('books', $books);
+    }
+
+    public function postEdit (Request $request){
+        DB::table('books')->insert([
+            'title' => $request->title,
+            'description' => $request->description,
+            'price' => $request->price
+        ]);
+        return redirect('/admin/books');
     }
 
     //form edit
     public function getDelete ($id)
     {
-        DB::table('books')->where('id', $id)->delete();
-        return redirect('/books');
+        BooksModel::deleteById($id);
+       
+        return redirect()->back()->with(["message"=>"Books has been deleted!"]);
     }
 
     //hapus data
-    public function getDetail ($id)
+    public function getDetail($id)
     {
-        //
+        $books = BooksModel::findById($id);
+        return view ('Backend.books.detail', [
+            'title' => $books->title
+        ]);
     }
 
     //detail data

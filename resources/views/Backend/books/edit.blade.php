@@ -28,13 +28,13 @@
             </div>
             <div class="form-group">
               <label for="inputDescription">Description</label>
-              <textarea id="inputDescription" class="form-control" rows="4"
+              <textarea required id="inputDescription" class="form-control" rows="4"
                         name="description" placeholder="Description" 
                         >{{ $books->description  }}</textarea>
             </div>
             <div class="form-group">
               <label for="inputClientCompany">Price</label>
-              <input type="number" id="inputClientCompany" class="form-control"
+              <input required type="number" id="inputClientCompany" class="form-control"
                      name="price" placeholder="Price" 
                      value="{{ $books->price }}">
             </div>
@@ -53,7 +53,6 @@
         <!-- /.card -->
       </div>
     </div>
-    
       </div>
     </div>
   </section>

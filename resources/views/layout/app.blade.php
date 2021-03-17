@@ -154,7 +154,7 @@
                           </li>                        
             
                           <li class="nav-item">
-                            <a href="./books" class="nav-link">
+                            <a href="{{url('admin/books')}}" class="nav-link">
                               <i class="nav-icon fas fa-table"></i>
                               <p>Books</p>
                             </a>
@@ -224,6 +224,12 @@
   <script src="{{asset('adminlte/dist/js/adminlte.min.js')}}"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="{{asset('adminlte/dist/js/demo.js')}}"></script>
+
+  <script>
+    @if(\Session::has('message'))
+      alert('{{\Session::get('message')}}')
+    @endif
+  </script>
   </body>
   </html>
   
