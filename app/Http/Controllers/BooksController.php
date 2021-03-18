@@ -74,7 +74,9 @@ class BooksController extends Controller
     {
         $books = BooksModel::findById($id);
         return view ('Backend.books.detail', [
-            'title' => $books->title
+            'title' => $books->title,
+            'description' => $books->description,
+            'price' => $books->price
         ]);
     }
 

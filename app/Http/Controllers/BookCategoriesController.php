@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\BookCategoriesModel;
 
 class BookCategoriesController extends Controller
 {
     public function getIndex(){
     
-        $books = DB::table('bookcategories')->get();
+        $bookcategories = DB::table('book_categories')->get();
         $data = [];
         $data['bookcategories'] = $bookcategories;
 
@@ -17,10 +19,13 @@ class BookCategoriesController extends Controller
         
     //form tambah
     public function postSave (Request $request){
-        DB::table('bookcategories')->insert([
-            'title' => $request->title,
-            'description' => $request->description,
-            'price' => $request->price
+        DB::table('book_categories')->insert([
+            'transactions_id' => $request->transactions_id,
+            'books_id' => $request->books_id,
+            'books_name' => $request->books_name,
+            'books_price' => $request->books_price,
+            'quantity' => $request->quantity,
+            'total' => $request->total,
         ]);
         return redirect('/admin/bookcategories');
     }
@@ -31,15 +36,18 @@ class BookCategoriesController extends Controller
         $bookcategories = BookCategories::find($id);
 
         // show the edit form and pass the books
-        return View::make('Backend.bookcategories.edit')
+        return View::make('Backend.bookcategories.form')
             ->with('bookcategories', $bookcategories);
     }
 
     public function postEdit (Request $request){
-        DB::table('bookcategories')->insert([
-            'title' => $request->title,
-            'description' => $request->description,
-            'price' => $request->price
+        DB::table('book_categories')->insert([
+            'transactions_id' => $request->transactions_id,
+            'books_id' => $request->books_id,
+            'books_name' => $request->books_name,
+            'books_price' => $request->books_price,
+            'quantity' => $request->quantity,
+            'total' => $request->total,
         ]);
         return redirect('/admin/bookcategories');
     }
@@ -62,6 +70,14 @@ class BookCategoriesController extends Controller
     //detail data
     public function getAdd ()
     {
-        return view ('Backend.bookcategories.add');
+        return view ('Backend.bookcategories.form',[
+            'form' => url('admin/bookcategories/save'),
+            'transactions_id' => old('transactions_id'),
+            'books_id' => old('books_id'),
+            'books_name' => old('books_name'),
+            'books_price' => old('books_price'),
+            'quantity' => old('quantity'),
+            'total' => old('total'),
+        ]);
     }
 }

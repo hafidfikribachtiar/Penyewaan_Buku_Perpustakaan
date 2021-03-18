@@ -56,20 +56,20 @@
               
 
                 <?php $no = 1; ?>
-                @foreach ($members as $kat)
+                @foreach ($members as $kat => $value)
                 
                 
                 <tr>
                 <td>{{ $no++ }}</td>
-                <td>{{ $kat->name }}</td>
-                <td>{{ $kat->phone }}</td>
-                <td>{{ $kat->address }}</td>
-                <td>{{ $kat->email }}</td>
+                <td>{{ $value->name }}</td>
+                <td>{{ $value->phone }}</td>
+                <td>{{ $value->address }}</td>
+                <td>{{ $value->email }}</td>
                 
                 <td>
-                  <a href="{{ url('admin/members/edit/'.$kat->id) }}" class="btn btn-success btn-sm"><i class="fas fa-cog"></i></a>
-                  <a href="{{ url('admin/members/detail/'.$kat->id) }}" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
-                  <a href="{{ url('admin/members/delete/'.$kat->id) }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                  <a href="{{ url('admin/members/edit/'.$value->id) }}" class="btn btn-success btn-sm"><i class="fas fa-cog"></i></a>
+                  <a href="{{ url('admin/members/detail/'.$value->id) }}" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
+                  <a href="{{ url('admin/members/delete/'.$value->id) }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                 </td>
                 {{-- <td>
                 

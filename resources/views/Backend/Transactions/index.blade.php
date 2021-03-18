@@ -16,7 +16,7 @@
           </ol>
         </div><!-- /.col -->
         <hr class="my-4">     
-          <a href="members/add" class="btn btn-primary">
+          <a href="transactions/add" class="btn btn-primary">
             Create Transactions</a>  
       </div><!-- /.row -->
     </div><!-- /.container-fluid -->

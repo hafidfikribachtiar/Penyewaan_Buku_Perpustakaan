@@ -130,24 +130,23 @@
                         
 
                        <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{url ('admin/dashboard')}}" class="nav-link">
                           <i class=""></i>
                           <p>
                             Home
-                            
                           </p>
                         </a>
                       
 
                             <li class="nav-item">
-                              <a href="./useradmin" class="nav-link">
+                              <a href="{{url ('admin/useradmin')}}" class="nav-link">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p> User Admin</p>
                             </a>
                           </li>
 
                           <li class="nav-item">
-                            <a href="./members" class="nav-link">
+                            <a href="{{url ('admin/members')}}" class="nav-link">
                               <i class="nav-icon fas fa-copy"></i>
                               <p>Members</p>
                             </a>
@@ -161,7 +160,7 @@
                           </li>
 
                           <li class="nav-item">
-                            <a href="./bookscategories" class="nav-link">
+                            <a href="{{url ('admin/bookcategories')}}" class="nav-link">
                               <i class="nav-icon fas fa-copy"></i>
                               <p>Books Categories</p>
                             </a>
@@ -170,12 +169,12 @@
                           <li href="#" class="nav-item">
                               <a href="{{url ('admin/transactions')}}" class="nav-link">
                                 <i class="nav-icon fas fa-edit"></i>
-                                <p>Transaction</p>                                 
+                                <p>Transactions</p>                           
                               </a>
                             </li>
             
                           <li class="nav-item">
-                            <a href="./transactiondetails" class="nav-link">
+                            <a href="{{url ('admin/transactiondetails')}}" class="nav-link">
                               <i class="nav-icon fas fa-copy"></i>
                               <p>Transaction Details</p>
                             </a>
@@ -185,10 +184,7 @@
                         <li class="nav-item">
                           <a href="{{action("App\Http\Controllers\Backend\AuthController@getLogout")}}" class="nav-link">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                              Log Out 
-                              <i class=""></i>
-                            </p>
+                            <p>Log Out<i class=""></i></p>
                           </a>
                           
                   </nav>

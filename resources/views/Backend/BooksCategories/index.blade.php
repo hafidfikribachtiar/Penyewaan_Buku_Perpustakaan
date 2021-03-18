@@ -7,17 +7,17 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Books</h1>
+          <h1 class="m-0">Book Categories</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">books</a></li>
+            <li class="breadcrumb-item"><a href="#">books categories</a></li>
             <li class="breadcrumb-item active">slide 1</li>
           </ol>
         </div><!-- /.col -->
         <hr class="my-4">     
           <a href="books/add" class="btn btn-primary">
-            Create Book</a>  
+            Create Book Categories</a>  
       </div><!-- /.row -->
     </div><!-- /.container-fluid -->
   </div>
@@ -47,9 +47,9 @@
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Price</th>
+                <th>Created_at</th>
+                <th>Update_at</th>
+                <th>Name</th>
               </tr>
             </thead>
             <tbody>
@@ -61,9 +61,9 @@
               
               <tr>
               <td>{{ $no++ }}</td>
-              <td>{{ $value->title }}</td>
-              <td>{{ $value->description }}</td>
-              <td>{{ $value->price }}</td>
+              <td>{{ $value->created_at }}</td>
+              <td>{{ $value->update_at }}</td>
+              <td>{{ $value->name }}</td>
               
               <td>
                 <a href="{{ url('admin/books/edit/'.$value->id) }}" class="btn btn-success btn-sm"><i class="fas fa-cog"></i></a>

@@ -7,17 +7,17 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Members</h1>
+          <h1 class="m-0">Transaction Details</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">members</a></li>
+            <li class="breadcrumb-item"><a href="#">Transaction Details</a></li>
             <li class="breadcrumb-item active">slide 1</li>
           </ol>
         </div><!-- /.col -->
         <hr class="my-4">     
-          <a href="members/add" class="btn btn-primary">
-            Create Members</a>  
+          <a href="transactiondetails/add" class="btn btn-primary">
+            Create Transaction Details</a>  
       </div><!-- /.row -->
     </div><!-- /.container-fluid -->
   </div>
@@ -26,7 +26,7 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Members</h3>
+          <h3 class="card-title">Transaction Details</h3>
 
           <div class="card-tools">
             <div class="input-group input-group-sm" style="width: 150px;">
@@ -46,10 +46,10 @@
             <thead>
               <tr>
                 <th>ID</th>
-                <th>books_name</th>
-                <th>books_price</th>
-                <th>quantity</th>
-                <th>total</th>
+                <th>Books Name</th>
+                <th>Books Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
               </tr>
             </thead>
             <tbody>
