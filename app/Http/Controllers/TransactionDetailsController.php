@@ -21,9 +21,10 @@ class TransactionDetailsController extends Controller
     //form tambah
     public function postSave (Request $request){
         DB::table('transaction_details')->insert([
-            'title' => $request->title,
-            'description' => $request->description,
-            'price' => $request->price
+            'books_name' => $request->books_name,
+            'books_price' => $request->books_price,
+            'quantity' => $request->quantity,
+            'total' => $request->total
         ]);
         return redirect('/admin/transactiondetails');
     }

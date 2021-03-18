@@ -50,7 +50,7 @@
         <!-- /.card -->
         <div class="row">
           <div class="col-12 float-right">
-            <input type="submit" value="Create new Porject" class="btn btn-success float-right-mb-3">
+            <input type="submit" value="Send Message" class="btn btn-success float-right-mb-3">
         </div>
         </form>
           <!-- /.card-body -->
@@ -64,3 +64,5 @@
   </section>
 
   @endsection
+
+  

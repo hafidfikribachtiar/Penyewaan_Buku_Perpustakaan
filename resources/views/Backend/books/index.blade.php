@@ -66,7 +66,7 @@
               <td>{{ $value->price }}</td>
               
               <td>
-                <a href="{{ url('admin/books/edit/'.$value->id) }}" class="btn btn-success btn-sm"><i class="fas fa-cog"></i></a>
+                <a href="{{ url('admin/books/edit/'.$value->id) }}" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></a>
                 <a href="{{ url('admin/books/detail/'.$value->id) }}" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
                 <a href="{{ url('admin/books/delete/'.$value->id) }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
               

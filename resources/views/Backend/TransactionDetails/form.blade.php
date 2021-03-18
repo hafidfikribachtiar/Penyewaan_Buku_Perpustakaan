@@ -21,21 +21,31 @@
 
           <div class="card-body">
             <div class="form-group">
-              <label for="inputName">Title</label>
+              <label for="inputName">Books Name</label>
               <input type="text" id="inputName" class="form-control"
-                                 name="title" placeholder="Title" 
+                                 name="booksname" placeholder="BooksName" 
                                  value="{{ $books_name }}">
             </div>
             <div class="form-group">
-              <label for="inputDescription">Description</label>
-              <textarea id="inputDescription" class="form-control" rows="4"
-                        name="description" placeholder="Description">{{ $description }}</textarea>
-            </div>
+                <label for="inputClientCompany">Books Price</label>
+                <input type="number" id="inputClientCompany" class="form-control"
+                       name="booksprice" placeholder="BooksPrice" 
+                       value="{{ $books_price }}">
+              </div>
             <div class="form-group">
-              <label for="inputClientCompany">Price</label>
+                <label for="inputQuantity">Quantity</label>
+                <select id="inputQuantity" class="form-control custom-select">
+                  <option>Very Good</option>
+                  <option>Good</option>
+                  <option>Not Good</option>
+                  <option>Bad</option>
+                </select>
+              </div>
+            <div class="form-group">
+              <label for="inputClientCompany">Total</label>
               <input type="number" id="inputClientCompany" class="form-control"
-                     name="price" placeholder="Price" 
-                     value="{{ $price }}">
+                     name="total" placeholder="Total" 
+                     value="{{ $total }}">
             </div>
           </div>
           <!-- /.card-body -->

@@ -28,7 +28,6 @@
             </div>
             <div class="form-group">
                 <label for="inputName">Grand Total</label>
-                <input value="{{ $grand_total }}">
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="radio1">
                   <label class="form-check-label">Success</label>
