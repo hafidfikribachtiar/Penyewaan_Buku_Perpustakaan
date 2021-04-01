@@ -2,6 +2,7 @@
 @section('content')
 
 <div class="content-wrapper">
+  <div class="container">
   <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container-fluid">
@@ -16,8 +17,10 @@
           </ol>
         </div><!-- /.col -->
         <hr class="my-4">     
-          <a href="books/add" class="btn btn-primary">
-            Create Book Categories</a>  
+        <div class="col-sm-12">
+          <a href="bookcategories/add" class="btn btn-sm btn-primary">Add Book Categories</a>
+          <a href="books/add" class="btn btn-sm btn-info">Back To Books</a> 
+        </div>
       </div><!-- /.row -->
     </div><!-- /.container-fluid -->
   </div>
@@ -28,18 +31,18 @@
       <div class="card">
         <div class="card-header">
           <h3 class="card-title">Books Data</h3>
-
           <div class="card-tools">
-            <div class="input-group input-group-sm" style="width: 150px;">
-              <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-              <div class="input-group-append">
-                <button type="submit" class="btn btn-default">
-                  <i class="fas fa-search"></i>
-                </button>
+            <form action="" method="GET">
+              <div class="input-group input-group-sm" style="width: 150px;">
+                  <input type="text" name="search" class="form-control float-right" placeholder="Search">
+                <div class="input-group-append">
+                  <button type="submit" class="btn btn-default">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
+        </form>
         </div>
         <!-- /.card-header -->
         <div class="card-body table-responsive p-0" style="height: 300px;">
@@ -47,8 +50,6 @@
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Created_at</th>
-                <th>Update_at</th>
                 <th>Name</th>
               </tr>
             </thead>
@@ -61,12 +62,10 @@
               
               <tr>
               <td>{{ $no++ }}</td>
-              <td>{{ $value->created_at }}</td>
-              <td>{{ $value->update_at }}</td>
               <td>{{ $value->name }}</td>
               
               <td>
-                <a href="{{ url('admin/books/edit/'.$value->id) }}" class="btn btn-success btn-sm"><i class="fas fa-cog"></i></a>
+                <a href="{{ url('admin/books/edit/'.$value->id) }}" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></a>
                 <a href="{{ url('admin/books/detail/'.$value->id) }}" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
                 <a href="{{ url('admin/books/delete/'.$value->id) }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
               

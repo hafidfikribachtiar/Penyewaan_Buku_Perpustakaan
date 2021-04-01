@@ -21,30 +21,18 @@
 
           <div class="card-body">
             <div class="form-group">
-              <label for="inputName">Title</label>
+              <label for="inputName">Name</label>
               <input type="text" id="inputName" class="form-control"
-                                 name="title" placeholder="Title" 
-                                 value="{{ $title }}">
-            </div>
-            <div class="form-group">
-              <label for="inputDescription">Description</label>
-              <textarea id="inputDescription" class="form-control" rows="4"
-                        name="description" placeholder="Description">{{ $description }}</textarea>
-            </div>
-            <div class="form-group">
-              <label for="inputClientCompany">Price</label>
-              <input type="number" id="inputClientCompany" class="form-control"
-                     name="price" placeholder="Price" 
-                     value="{{ $price }}">
-            </div>
+                                 name="name" placeholder="Name" 
+                                 value="{{ $books_name }}">
+            
           </div>
-          <!-- /.card-body -->
-        </div>
-        <a href="{{url('/admin/books/')}}" class="btn btn-secondary">Cancel</a>
+        <a href="{{url('/admin/bookcategories/')}}" class="btn btn-secondary">Cancel</a>
         <!-- /.card -->
         <div class="row">
+          <div class="my-1">
           <div class="col-12 float-right">
-            <input type="submit" value="Create new Porject" class="btn btn-success float-right-mb-3">
+            <input type="submit" value="save" class="btn btn-success float-right-mb-3">
         </div>
         </form>
           <!-- /.card-body -->

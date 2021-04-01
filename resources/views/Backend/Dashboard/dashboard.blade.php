@@ -27,7 +27,7 @@
         <div class="row">
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box">
-              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">User Admin</span>
@@ -41,7 +41,7 @@
           <!-- /.col -->
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-users"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Members</span>
@@ -59,9 +59,9 @@
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
               <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
-
+              
               <div class="info-box-content">
-                <span class="info-box-text">Books</span>
+                <span  class="info-box-text">Books</span>
                 <span class="info-box-number"></span>
               </div>
               <!-- /.info-box-content -->
@@ -71,10 +71,11 @@
           <!-- /.col -->
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
-
+              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-shopping-cart"></i></span>
+              
               <div class="info-box-content">
-                <span class="info-box-text">Books Categories</span>
+                <a href="{{url('/admin/transactions')}}">
+                <span class="info-box-text">Transactions</span></a>
                 <span class="info-box-number"></span>
               </div>
               <!-- /.info-box-content -->
@@ -83,5 +84,6 @@
           
           <!-- /.col -->
         </div>
+        
         
 @endsection

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend\Members;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\MembersModel;
@@ -20,7 +21,7 @@ class MembersController extends Controller
         
     //form tambah
     public function postSave (Request $request){
-        DB::table('members')->insert([
+        DB::table('members')->update([
             'name'=> $request->name,
             'phone' => $request->phone,
             'address'=> $request->address,

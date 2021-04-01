@@ -2,6 +2,7 @@
 @section('content')
 
 <div class="content-wrapper">
+  <div class="container">
   <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container-fluid">
@@ -24,15 +25,14 @@
   <!-- /.content-header -->
 
 <div class="row">
-    <div class="col-12">
+    <div class="col-12">  
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Books Data</h3>
-
+          <h3 class="card-title">Book Data</h3>
           <div class="card-tools">
+          <form action="" method="GET">
             <div class="input-group input-group-sm" style="width: 150px;">
-              <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
+                <input type="text" name="search" class="form-control float-right" placeholder="Search">
               <div class="input-group-append">
                 <button type="submit" class="btn btn-default">
                   <i class="fas fa-search"></i>
@@ -40,6 +40,7 @@
               </div>
             </div>
           </div>
+        </form>
         </div>
         <!-- /.card-header -->
         <div class="card-body table-responsive p-0" style="height: 300px;">

@@ -2,6 +2,7 @@
 @section('content')
 
 <div class="content-wrapper">
+  <div class="container">
   <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container-fluid">
@@ -47,7 +48,6 @@
               <tr>
                 <th>ID</th>
                 <th>Trans No</th>
-                <th>Phone</th>
                 <th>Grand Total</th>
                 <th>Created By</th>
               </tr>
@@ -62,12 +62,11 @@
                 <tr>
                 <td>{{ $no++ }}</td>
                 <td>{{ $kat->trans_no }}</td>
-                <td>{{ $kat->phone }}</td>
                 <td>{{ $kat->grand_total }}</td>
                 <td>{{ $kat->created_by }}</td>
                 
                 <td>
-                  <a href="{{ url('admin/transactions/edit/'.$kat->id) }}" class="btn btn-success btn-sm"><i class="fas fa-cog"></i></a>
+                  <a href="{{ url('admin/transactions/edit/'.$kat->id) }}" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></a>
                   <a href="{{ url('admin/transactions/detail/'.$kat->id) }}" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
                   <a href="{{ url('admin/transactions/delete/'.$kat->id) }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                 </td>

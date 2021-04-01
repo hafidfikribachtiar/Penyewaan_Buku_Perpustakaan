@@ -2,6 +2,7 @@
 @section('content')
 
 <div class="content-wrapper">
+  <div class="container">
   <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container-fluid">
@@ -16,9 +17,10 @@
           </ol>
         </div><!-- /.col -->
         <hr class="my-4">     
-          <a href="transactiondetails/add" class="btn btn-primary">
-            Create Transaction Details</a>  
-      </div><!-- /.row -->
+        <div class="col-sm-12">
+          <a href="transactiondetails/add" class="btn btn-sm btn-primary">Add Transaction Details</a>
+          <a href="transactions/add" class="btn btn-sm btn-info">Back To Transactions</a> 
+        </div>
     </div><!-- /.container-fluid -->
   </div>
   <!-- /.content-header -->
@@ -67,7 +69,7 @@
                 <td>{{ $kat->total }}</td>
                 
                 <td>
-                  <a href="{{ url('admin/transactiondetails/edit/'.$kat->id) }}" class="btn btn-success btn-sm"><i class="fas fa-cog"></i></a>
+                  <a href="{{ url('admin/transactiondetails/edit/'.$kat->id) }}" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></a>
                   <a href="{{ url('admin/transactiondetails/detail/'.$kat->id) }}" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
                   <a href="{{ url('admin/transactiondetails/delete/'.$kat->id) }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                 </td>

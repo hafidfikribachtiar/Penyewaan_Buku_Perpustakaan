@@ -50,6 +50,7 @@ class ApiAuthController extends Controller
             if ($data->users_id!=null){
                 $user=UsersModel::find($data->users_id);
                 $login=auth()->login($user);
+                dd($login);
                 if ($login){
                     return [
                         'status'=>true,
@@ -64,7 +65,7 @@ class ApiAuthController extends Controller
             }else{
                 return [
                     'status'=>false,
-                    'message'=>'Token Sudah Dipakai',
+                    'message'=>'Token Has Been Used',
                     'data'=>null
                     ];
             }

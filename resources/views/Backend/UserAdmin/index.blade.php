@@ -2,6 +2,7 @@
 @section('content')
 
 <div class="content-wrapper">
+  <div class="container">
   <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container-fluid">
@@ -65,7 +66,7 @@
                 <td>{{ $kat->password }}</td>
                 
                 <td>
-                  <a href="{{ url('admin/useradmin/edit/'.$kat->id) }}" class="btn btn-success btn-sm"><i class="fas fa-cog"></i></a>
+                  <a href="{{ url('admin/useradmin/edit/'.$kat->id) }}" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></a>
                   <a href="{{ url('admin/useradmin/detail/'.$kat->id) }}" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
                   <a href="{{ url('admin/useradmin/delete/'.$kat->id) }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                 </td>

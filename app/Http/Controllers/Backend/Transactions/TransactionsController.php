@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend\Transactions;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 // use App\Category;
@@ -53,7 +54,7 @@ class TransactionsController extends Controller
     }
 
     public function postEdit (Request $request){
-        DB::table('transactions')->insert([
+        DB::table('transactions')->update([
             'trans_no' => $request->trans_no,
             'grand_total' => $request->grand_total,
             'created_by' => $request->created_by

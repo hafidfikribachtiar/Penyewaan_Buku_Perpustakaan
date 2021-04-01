@@ -53,8 +53,9 @@
         <a href="{{url('/admin/transactiondetails/')}}" class="btn btn-secondary">Cancel</a>
         <!-- /.card -->
         <div class="row">
+          <div class="my-1">
           <div class="col-12 float-right">
-            <input type="submit" value="Create new Porject" class="btn btn-success float-right-mb-3">
+            <input type="submit" value="Save" class="btn btn-success float-right-mb-3">
         </div>
         </form>
           <!-- /.card-body -->

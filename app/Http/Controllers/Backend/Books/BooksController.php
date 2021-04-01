@@ -1,22 +1,24 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend\Books;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 // use App\Category;
 use App\Models\BooksModel;
+use App\Repositories\Books;
 use View;
 
 class BooksController extends Controller
 {
-    public function getIndex(){
+    public function getIndex(Request $request){
     
-        $books = DB::table('books')->get();
+        $books = Books::findAllData($request->search);
         $data = [];
         $data['books'] = $books;
 
-        return view("Backend.books.index", $data);
+        return view("Backend.Books.index", $data);
     }
         
     //form tambah
@@ -44,7 +46,7 @@ class BooksController extends Controller
             //     'price' => $books->price
             // ]);
 
-        return view('Backend.books.form', [
+        return view('Backend.Books.form', [
             'form' => url('admin/books/'.$id.'/edit'),
             'title' => $books->title,
             'description' => $books->description,
@@ -73,7 +75,7 @@ class BooksController extends Controller
     public function getDetail($id)
     {
         $books = BooksModel::findById($id);
-        return view ('Backend.books.detail', [
+        return view ('Backend.Books.detail', [
             'title' => $books->title,
             'description' => $books->description,
             'price' => $books->price
@@ -83,7 +85,7 @@ class BooksController extends Controller
     //detail data
     public function getAdd ()
     {
-        return view ('Backend.books.form',[
+        return view ('Backend.Books.form',[
             'form' => url('admin/books/save'),
             'title' => old('title'),
             'description' => old('description'),
