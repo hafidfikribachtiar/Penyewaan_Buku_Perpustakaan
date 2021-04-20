@@ -5,41 +5,53 @@ namespace App\Http\Controllers\Backend\TransactionDetails;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\TransactionDetails;
+use App\Models\TransactionDetailsModel;
+use App\Repositories\TransactionDetails;
 use view;
 
 class TransactionDetailsController extends Controller
 {
-    public function getIndex(){
+    public function getIndex(Request $request){
     
-        $transactiondetails = DB::table('transaction_details')->get();
+        $transactiondetails = TransactionDetails::findAllData($request->search);
         $data = [];
-        $data['transactiondetails'] = $transactiondetails;
+        $data ['transactiondetails'] = $transactiondetails;
 
         return view("Backend.transactiondetails.index", $data);
     }
         
-    //form tambah
+    //form save
     public function postSave (Request $request){
-        DB::table('transaction_details')->insert([
-            'books_name' => $request->books_name,
-            'books_price' => $request->books_price,
-            'quantity' => $request->quantity,
-            'total' => $request->total
-        ]);
+        // DB::table('transaction_details')->insert([
+        //     'books_name' => $request->books_name,
+        //     'books_price' => $request->books_price,
+        //     'quantity' => $request->quantity,
+        //     'total' => $request->total
+        // ]);
+        // return redirect('/admin/transactiondetails');
+
+        $transactiondetails = new Members();
+        $transactiondetails->books_name = $request->books_name;
+        $transactiondetails->books_price = $request->books_price;
+        $transactiondetails->quantity = $request->quantity;
+        $transactiondetails->total = $request->total;
+        $transactiondetails->save();
         return redirect('/admin/transactiondetails');
     }
 
-    //simpan form
+    //edit data
     public function getEdit($id)
     {
-        $transactiondetails = TransactionDetailsModel::find($id);
-
         // show the edit form and pass the books
-        return View::make('Backend.transactiondetails.form')
-            ->with('transactiondetails', $transactiondetails);
+        // $transactiondetails = TransactionDetailsModel::find($id);
+        // return View::make('Backend.transactiondetails.form')
+        //     ->with('transactiondetails', $transactiondetails);
+        $data['row'] = TransactionsDetailsModel::find($id);
+        $data['form'] = url('admin/transactiondetails/save');
+        return view("Backend.transactiondetails.form",$data);
     }
 
+    //form edit
     public function postEdit (Request $request){
         DB::table('transaction_details')->insert([
             'books_name' => $request->books_name,
@@ -50,7 +62,7 @@ class TransactionDetailsController extends Controller
         return redirect('/admin/transactiondetails');
     }
 
-    //form edit
+    //delete 
     public function getDelete ($id)
     {
         TransactionDetails::deleteById($id);
@@ -59,13 +71,15 @@ class TransactionDetailsController extends Controller
         return view ('Backend.transactiondetails.index');
     }
 
-    //hapus data
+    //detail data
     public function getDetail ()
     {
-        return view ('Backend.transactiondetails.detail');
+        // return view ('Backend.transactiondetails.detail');
+        $data['row'] = TransactionDetailsModel::findById($id);
+        return view ('Backend.transactiondetails.detail',$data);
     }
 
-    //detail data
+    //add data 
     public function getAdd ()
     {
         return view ('Backend.transactiondetails.form', [

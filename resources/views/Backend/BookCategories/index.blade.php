@@ -45,7 +45,7 @@
         </form>
         </div>
         <!-- /.card-header -->
-        <div class="card-body table-responsive p-0" style="height: 300px;">
+        <div class="card-body table-responsive p-0">
           <table class="table table-head-fixed text-nowrap">
             <thead>
               <tr>
@@ -65,9 +65,9 @@
               <td>{{ $value->name }}</td>
               
               <td>
-                <a href="{{ url('admin/books/edit/'.$value->id) }}" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></a>
-                <a href="{{ url('admin/books/detail/'.$value->id) }}" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
-                <a href="{{ url('admin/books/delete/'.$value->id) }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                <a href="{{ url('admin/bookcategories/edit/'.$value->id) }}" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></a>
+                <a href="{{ url('admin/bookcategories/detail/'.$value->id) }}" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
+                <a href="{{ url('admin/bookcategories/delete/'.$value->id) }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
               
               </td>
               {{-- <td>
@@ -88,6 +88,9 @@
               @endforeach
             </tbody>
           </table>
+          <div class="pull-right">
+            {{ $bookcategories->links() }}
+          </div>
         </div>
-
+        
 @endsection

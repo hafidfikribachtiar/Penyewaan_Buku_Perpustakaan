@@ -5,84 +5,65 @@ namespace App\Http\Controllers\Backend\UserAdmin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Model\UserAdminModels;
+use App\Models\UserAdminModel;
+use App\Repositories\BookCategories;
+use View;
+use Hash;
 
 class UserAdminController extends Controller
 {
-    public function getIndex(){
+    public function getIndex(Request $request){
     
-        $useradmin = DB::table('user_admin')->get();
+        $useradmin = DB::table('user_admin')->simplePaginate();
         $data = [];
         $data['useradmin'] = $useradmin;
 
         return view("Backend.useradmin.index", $data);
     }
         
-    //form tambah
+    //form save
     public function postSave (Request $request){
-        DB::table('user_admin')->insert([
-            'created_at' => $request->created_at,
-            'updated_at' => $request->updated_at,
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => $request->password
-        ]);
+        $data = [];
+        $data['name'] = $request->name;
+        $data['email'] = $request->email;
+        if($request->password) {
+        $data['password'] = Hash::make ($request->password);
+        }
+        if($request->id) {
+            DB::table('user_admin')->where("id", $request->id)->update($data);
+        } else {
+            DB::table('user_admin')->insert($data);
+        }
         return redirect('/admin/useradmin');
     }
 
-    //simpan form
+    //edit data
     public function getEdit($id)
     {
-        $useradmin = UserAdminModel::find($id);
-
-        // show the edit form and pass the books
-        return View::make('Backend.useradmin.edit')
-            ->with('useradmin', $useradmin);
+        $data['row'] = UserAdminModel::find($id);
+        $data['form'] = url('admin/useradmin/save');
+        return view("Backend.userAdmin.form",$data);
     }
-
-    public function postEdit (Request $request){
-        DB::table('user_admin')->insert([
-            'created_at' => $request->created_at,
-            'updated_at' => $request->updated_at,
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => $request->password,
-        ]);
-        return redirect('/admin/useradmin');
-    }
-
-    //form edit
+    
+    //delete data
     public function getDelete ($id)
     {
-        Books::deleteById($id);
+        UserAdminModel::deleteById($id);
         
-        return redirect()->back()->with(["message"=>"useradmin".$useradmin->name." has been deleted!"]);
-        return view ('Backend.useradmin.index');
-    }
-
-    //hapus data
-    public function getDetail ($id)
-    {
-        $useradmin = UserAdmin::findById($id);
-        return view ('Backend.useradmin.detail', [
-            'created_at' => $useradmin->created_at,
-            'updated_at' => $useradmin->updated_at,
-            'name' => $useradmin->name,
-            'email' => $useradmin->email,
-            'password' => $useradmin->password,
-        ]);
+        return redirect()->back()->with(["message"=> "the data has been deleted!"]);
     }
 
     //detail data
+    public function getDetail ($id)
+    {
+        $data['row'] = UserAdminModel::findById($id);
+        return view ('Backend.useradmin.detail',$data);
+    }
+
+    //add data
     public function getAdd ()
     {
-        return view ('Backend.useradmin.form',[
-        'form' => url('admin/useradmin/save'),
-            'created_at' => old('created_at'),
-            'updated_at' => old('updated_at'),
-            'name' => old('name'),
-            'email' => old('email'),
-            'password' => old('password'),
-        ]);
+        $data['form'] = url('admin/useradmin/save');
+        return view ('Backend.useradmin.form',$data);
     }
 }

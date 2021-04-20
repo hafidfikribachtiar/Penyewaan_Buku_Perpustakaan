@@ -18,7 +18,7 @@
         </div><!-- /.col -->
         <hr class="my-4">     
           <a href="books/add" class="btn btn-primary">
-            Create Book</a>  
+            Create Books</a>  
       </div><!-- /.row -->
     </div><!-- /.container-fluid -->
   </div>
@@ -28,7 +28,7 @@
     <div class="col-12">  
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Book Data</h3>
+          <h3 class="card-title">Books Data</h3>
           <div class="card-tools">
           <form action="" method="GET">
             <div class="input-group input-group-sm" style="width: 150px;">
@@ -43,7 +43,7 @@
         </form>
         </div>
         <!-- /.card-header -->
-        <div class="card-body table-responsive p-0" style="height: 300px;">
+        <div class="card-body table-responsive p-0">
           <table class="table table-head-fixed text-nowrap">
             <thead>
               <tr>
@@ -90,6 +90,9 @@
               @endforeach
             </tbody>
           </table>
+          <div class="pull-right pagination">
+            {{ $books->links() }}
+          </div>
         </div>
-
+        
 @endsection

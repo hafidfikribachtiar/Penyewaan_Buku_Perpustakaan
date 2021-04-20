@@ -25,24 +25,24 @@
               <label for="inputName">Name</label>
               <input type="text" id="inputName" class="form-control"
                                  name="name" placeholder="Name" 
-                                 value="{{ old('name') }}">
+                                 value="{{ isset($row) ? $row->name : Null }}">
             </div>
             <div class="form-group">
               <label for="inputClientCompany">Phone</label>
               <input type="number" id="inputClientCompany" class="form-control"
                         name="phone" placeholder="Phone" 
-                        value="{{ old('phone') }}">
+                        value="{{ isset($row) ? $row->phone : Null }}">
             </div>
             <div class="form-group">
               <label for="inputAddress">Address</label>
               <textarea id="inputAddress" class="form-control" rows="4"
-                     name="address" placeholder="Address">{{ old('address') }}</textarea>
+                     name="address" placeholder="Address">{{ isset($row) ? $row->address : Null }}</textarea>
             </div>
             <div class="form-group">
                 <label for="inputClientCompany">Email</label>
                 <input type="inputemail" id="inputEmail" class="form-control"
                        name="email" placeholder="Email" 
-                       value="{{ old('email') }}">
+                       value="{{ isset($row) ? $row->email : Null }}">
               </div>
           </div>
           <!-- /.card-body -->

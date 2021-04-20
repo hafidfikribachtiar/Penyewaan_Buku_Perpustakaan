@@ -6,42 +6,57 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\BookCategoriesModel;
+use App\Repositories\BookCategories;
 use view;
 
 class BookCategoriesController extends Controller
 {
-    public function getIndex(){
+    public function getIndex(Request $request){
     
-        $bookcategories = DB::table('book_categories')->get();
+        $bookcategories = BookCategories::findAllData($request->search);
         $data = [];
         $data['bookcategories'] = $bookcategories;
 
         return view("Backend.bookcategories.index", $data);
     }
         
-    //form tambah
+    //form save
     public function postSave (Request $request){
-        DB::table('book_categories')->insert([
-            'transactions_id' => $request->transactions_id,
-            'books_id' => $request->books_id,
-            'books_name' => $request->books_name,
-            'books_price' => $request->books_price,
-            'quantity' => $request->quantity,
-            'total' => $request->total,
-        ]);
+        // DB::table('book_categories')->insert([
+        //     'transactions_id' => $request->transactions_id,
+        //     'books_id' => $request->books_id,
+        //     'books_name' => $request->books_name,
+        //     'books_price' => $request->books_price,
+        //     'quantity' => $request->quantity,
+        //     'total' => $request->total,
+        // ]);
+        // return redirect('/admin/bookcategories');
+
+        $bookcategories = new Books();
+        $bookcategories->books_name = $request->books_name;
+        $bookcategories->books_price = $request->books_price;
+        $bookcategories->quantity = $request->quantity;
+        $bookcategories->total = $request->total;
+        $bookcategories->save();
         return redirect('/admin/bookcategories');
     }
 
-    //simpan form
+    //edit data
     public function getEdit($id)
     {
-        $bookcategories = BookCategories::find($id);
+        $bookcategories = BookCategoriesModel::find($id);
 
         // show the edit form and pass the books
-        return View::make('Backend.bookcategories.form')
-            ->with('bookcategories', $bookcategories);
+        // return View::make('Backend.bookcategories.form')
+        //     ->with('bookcategories', $bookcategories);
+
+        return view('Backend.bookcategories.form', [
+            'form' => url('admin/bookcategories/'.$id.'/edit'),
+            'name' => $bookcategories->name
+        ]);
     }
 
+    //form edit
     public function postEdit (Request $request){
         DB::table('book_categories')->insert([
             'transactions_id' => $request->transactions_id,
@@ -54,7 +69,7 @@ class BookCategoriesController extends Controller
         return redirect('/admin/bookcategories');
     }
 
-    //form edit
+    //delete data
     public function getDelete ($id)
     {
         BookCategories::deleteById($id);
@@ -63,13 +78,17 @@ class BookCategoriesController extends Controller
         return view ('Backend.bookcategories.index');
     }
 
-    //hapus data
-    public function getDetail ()
+    //detail data
+    public function getDetail ($id)
     {
-        return view ('Backend.bookcategories.detail');
+        // return view ('Backend.bookcategories.detail');
+        $bookcategories = BookCategoriesModel::findById($id);
+        return view ('Backend.BookCategories.detail', [
+            'name' => $bookcategories->name
+        ]);
     }
 
-    //detail data
+    //add data
     public function getAdd ()
     {
         return view ('Backend.bookcategories.form',[

@@ -10,9 +10,11 @@ class BookCategories extends BookCategoriesModel
     public static function findAllData($search){
         $bookcategories = DB::table('book_categories');
         if($search) {
-            $bookcategories = $bookcategories->where('name',$search);
+            $bookcategories = $bookcategories->where(function($q) use ($search){
+                $q->where('name','like','%'.$search.'%');
+            });
         }
-        $bookcategories = $bookcategories->get();
+        $bookcategories = $bookcategories->simplePaginate(5);
         return $bookcategories;
     }
 

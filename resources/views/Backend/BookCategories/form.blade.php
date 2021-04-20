@@ -7,7 +7,7 @@
       <div class="col-md-6">
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Create books</h3>
+            <h3 class="card-title">Create Book Categories</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -24,7 +24,7 @@
               <label for="inputName">Name</label>
               <input type="text" id="inputName" class="form-control"
                                  name="name" placeholder="Name" 
-                                 value="{{ $books_name }}">
+                                 value="{{ $name }}">
             
           </div>
         <a href="{{url('/admin/bookcategories/')}}" class="btn btn-secondary">Cancel</a>

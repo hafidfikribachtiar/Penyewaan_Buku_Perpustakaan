@@ -7,7 +7,7 @@
       <div class="col-md-6">
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Create books</h3>
+            <h3 class="card-title">Create User Admin</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -17,6 +17,7 @@
           </div>
 
         <form action="{{ $form }}" method="POST">
+          <input type='hidden' name='id' value='{{ isset($row) ? $row->id : null }}'/>
           @csrf
 
           <div class="card-body">
@@ -24,17 +25,16 @@
               <label for="inputName">Name</label>
               <input type="text" id="inputName" class="form-control"
                                  name="name" placeholder="Name" 
-                                 value="{{ $name }}">
+                                 value="{{ isset($row) ? $row->name : null }}">
             <div class="form-group">
                 <label for="inputEmail">Email</label>
-                <input type="text" id="inputEmail" class="form-control"
+                <input type="email" id="inputEmail" class="form-control"
                                     name="email" placeholder="Email" 
-                                    value="{{ $email }}">                      
+                                    value="{{ isset($row) ? $row->email : null }}">                      
                 <div class="form-group">
                     <label for="inputPassword">Password</label>
-                    <input type="text" id="inputPassword" class="form-control"
-                                        name="password" placeholder="Password" 
-                                        value="{{ $password }}">                        
+                    <input type="password" id="inputPassword" class="form-control"
+                            name="password" placeholder="Kosongkan Jika Tidak Di Isi">                       
             </div>
           </div>
           <!-- /.card-body -->
@@ -43,7 +43,7 @@
         <!-- /.card -->
         <div class="row">
           <div class="col-12 float-right">
-            <input type="submit" value="Create new Porject" class="btn btn-success float-right-mb-3">
+            <input type="submit" value="Save" class="btn btn-success float-right-mb-3">
         </div>
         </form>
           <!-- /.card-body -->

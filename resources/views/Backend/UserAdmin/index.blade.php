@@ -42,14 +42,13 @@
           </div>
         </div>
         <!-- /.card-header -->
-        <div class="card-body table-responsive p-0" style="height: 300px;">
+        <div class="card-body table-responsive p-0">
           <table class="table table-head-fixed text-nowrap">
             <thead>
               <tr>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Password</th>
               </tr>
             </thead>
             <tbody>
@@ -63,7 +62,6 @@
                 <td>{{ $no++ }}</td>
                 <td>{{ $kat->name }}</td>
                 <td>{{ $kat->email }}</td>
-                <td>{{ $kat->password }}</td>
                 
                 <td>
                   <a href="{{ url('admin/useradmin/edit/'.$kat->id) }}" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></a>
@@ -89,4 +87,5 @@
               </tbody>
           </table>
         </div>
+        {{ $useradmin->links() }}
 @endsection

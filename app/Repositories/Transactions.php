@@ -1,10 +1,17 @@
 <?php
 namespace App\Repositories;
-
+use DB;
 use App\Models\TransactionsModel;
 
 class Transactions extends TransactionsModel
 {
-    // TODO : Make your own query methods
+    public static function findAllData($search){
+        $transactions = DB::table('transactions');
+        if($search) {
+            $transactions = $transactions->where('name',$search);
+        }
+        $transactions = $transactions->simplePaginate(5);
+        return $transactions;
+    }
 
 }
